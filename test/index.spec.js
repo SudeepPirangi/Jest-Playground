@@ -12,6 +12,18 @@ describe("String to array convertion", () => {
   test("Numeric string '90\n20,50' - [90, 20, 50]", () => {
     expect(stringToArray("90\n20\n50")).toEqual([90, 20, 50]);
   });
+
+  test("New delimiter with combination of '\n' '//;100\n20;50' - [100, 20, 50]", () => {
+    expect(stringToArray("//;100\n20;50")).toEqual([100, 20, 50]);
+  });
+
+  test("New delimiter with combination of '\n' and non-numeric '//&100\n20&a' - [100, 20, NaN]", () => {
+    expect(stringToArray("//&100\n20&a")).toEqual([100, 20, NaN]);
+  });
+
+  test("New delimiter '//*2*20\n9' - [2, 20, 9]", () => {
+    expect(stringToArray("//*2*20\n9")).toEqual([2, 20, 9]);
+  });
 });
 
 describe("Adds string numbers", () => {

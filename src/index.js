@@ -16,8 +16,13 @@ const add = (input) => {
  * @returns characters_as_array
  */
 function stringToArray(input) {
-  input = input.replace(/\n/g, ",");
-  return input.split(",").map((num) => +num);
+  let delimiter = ",";
+  if (input.indexOf("//") === 0) {
+    delimiter = input.charAt(2);
+    input = input.substring(3, input.length);
+  }
+  input = input.replace(/\n/g, delimiter);
+  return input.split(delimiter).map((num) => +num);
 }
 
 /**
@@ -37,6 +42,6 @@ function getSum(inputArr) {
   return sum;
 }
 
-// console.log('Addition of - "1\n2,5"', add("1\n2,5"));
+// console.log('Addition of - "//;100;20;a"', add("//;2\n20;9"));
 
 module.exports = { add, stringToArray };
