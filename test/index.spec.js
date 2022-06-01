@@ -24,4 +24,16 @@ describe("Adds string numbers", () => {
   test("Two numbers input '10,20' - 30", () => {
     expect(add("10,20")).toBe(30);
   });
+
+  test("Multiple numbers input '110,a,50' - invalid input", () => {
+    expect(add("110,a,50")).toBe("invalid input");
+  });
+
+  test("Multiple numbers input '110,20,50' - 180", () => {
+    expect(add("110,20,50")).toBe(180);
+  });
+
+  test("Multiple numbers input '110,20,50,120,50' - 350", () => {
+    expect(add("110,20,50,120,50")).toBe(350);
+  });
 });
