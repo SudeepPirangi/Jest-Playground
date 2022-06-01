@@ -5,10 +5,20 @@
  */
 const add = (input) => {
   if (!input.trim().length) return 0;
-  let inputArr = input.split(",");
+  let inputArr = stringToArray(input);
   console.log("inputArr", inputArr);
   return getSum(inputArr);
 };
+
+/**
+ * Replaces '\n' characters with ',' and converts string input to array of numbers
+ * @param {string} input
+ * @returns characters_as_array
+ */
+function stringToArray(input) {
+  input = input.replace(/\n/g, ",");
+  return input.split(",").map((num) => +num);
+}
 
 /**
  * Function to calculate sum of numbers in input array
@@ -18,15 +28,15 @@ const add = (input) => {
 function getSum(inputArr) {
   var sum = 0;
   for (let i = 0; i < inputArr.length; ++i) {
-    if (isNaN(+inputArr[i])) {
+    if (isNaN(inputArr[i])) {
       sum = "invalid input";
       break;
     }
-    sum += +inputArr[i];
+    sum += inputArr[i];
   }
   return sum;
 }
 
-// console.log('Addition of - ""', add("a"));
+// console.log('Addition of - "1\n2,5"', add("1\n2,5"));
 
-module.exports = add;
+module.exports = { add, stringToArray };

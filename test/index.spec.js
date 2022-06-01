@@ -1,4 +1,18 @@
-const add = require("../src/index");
+const { add, stringToArray } = require("../src/index");
+
+describe("String to array convertion", () => {
+  test("Alphabetic string 'a,b,c' - [NaN, NaN, NaN]", () => {
+    expect(stringToArray("a,b,c")).toEqual([NaN, NaN, NaN]);
+  });
+
+  test("Alphabetic string '90\n20,c' - [90, 20, NaN]", () => {
+    expect(stringToArray("90\n20,c")).toEqual([90, 20, NaN]);
+  });
+
+  test("Numeric string '90\n20,50' - [90, 20, 50]", () => {
+    expect(stringToArray("90\n20\n50")).toEqual([90, 20, 50]);
+  });
+});
 
 describe("Adds string numbers", () => {
   test("Empty string input - 0", () => {
@@ -35,5 +49,9 @@ describe("Adds string numbers", () => {
 
   test("Multiple numbers input '110,20,50,120,50' - 350", () => {
     expect(add("110,20,50,120,50")).toBe(350);
+  });
+
+  test("New-line chars in input '1\n2,3' - 6", () => {
+    expect(add("1\n2,3")).toBe(6);
   });
 });
