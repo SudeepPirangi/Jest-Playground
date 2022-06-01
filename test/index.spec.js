@@ -102,14 +102,14 @@ describe("Addition of elements in array", () => {
   });
 
   test("Sum of [2, -2, 9] => negatives not allowed - -2", () => {
-    expect(getSum([2, -2, 9])).toThrow(/negatives not allowed/);
+    expect(() => getSum([2, -2, 9])).toThrow("negatives not allowed - -2");
   });
 
   test("Sum of [-32, -12, 9, 93, -8] => negatives not allowed - -32, -12, -8", () => {
-    expect(getSum([-32, -12, 9, 93, -8])).toThrow("negatives not allowed - -32, -12, -8");
+    expect(() => getSum([-32, -12, 9, 93, -8])).toThrow("negatives not allowed - -32, -12, -8");
   });
 
   test("Sum of [-32, -12, -8] => negatives not allowed - -32, -12, -8", () => {
-    expect(getSum([-32, -12, -8])).toThrow("negatives not allowed - -32, -12, -8");
+    expect(() => getSum([-32, -12, -8])).toThrow("negatives not allowed - -32, -12, -8");
   });
 });
