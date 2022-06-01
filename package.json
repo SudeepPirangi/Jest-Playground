@@ -1,0 +1,26 @@
+{
+  "name": "jest-playground",
+  "version": "1.0.0",
+  "description": "TDD and unit testing using Jest framework",
+  "main": "index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "start:dev": "nodemon src/index.js",
+    "test": "jest"
+  },
+  "keywords": [
+    "Jest",
+    "TDD",
+    "Unit testing",
+    "JavaScript testing"
+  ],
+  "author": "Sudeep Pirangi",
+  "license": "ISC",
+  "devDependencies": {
+    "jest": "^28.1.0",
+    "nodemon": "^2.0.16"
+  },
+  "dependencies": {
+    "@types/jest": "^27.5.1"
+  }
+}
