@@ -1,1 +1,3 @@
-console.log("Hello World!!");
+const add = () => {};
+
+module.exports = add;
