@@ -6,7 +6,7 @@
 const add = (input) => {
   if (!input.trim().length) return 0;
   let inputArr = stringToArray(input);
-  console.log("inputArr", inputArr);
+  // console.log("inputArr", inputArr);
   return getSum(inputArr);
 };
 
@@ -37,6 +37,7 @@ function stringToArray(input) {
 function getSum(inputArr) {
   var sum = 0;
   var negatives = [];
+  inputArr = inputArr.filter((num) => isNaN(num) || num < 1000);
   for (let i = 0; i < inputArr.length; ++i) {
     if (isNaN(inputArr[i])) {
       sum = "invalid input";

@@ -112,4 +112,12 @@ describe("Addition of elements in array", () => {
   test("Sum of [-32, -12, -8] => negatives not allowed - -32, -12, -8", () => {
     expect(() => getSum([-32, -12, -8])).toThrow("negatives not allowed - -32, -12, -8");
   });
+
+  test("Sum of [1, 20, 5000, 50, 1100] => 71", () => {
+    expect(getSum([1, 20, 5000, 50, 1100])).toBe(71);
+  });
+
+  test("Sum of [1000, 1001, 5000, 1100] => 0", () => {
+    expect(getSum([1000, 1001, 5000, 1100])).toBe(0);
+  });
 });
